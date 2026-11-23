@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import 'banner_ad_widget.dart';
+
 /// Bottom-navigation host for the five primary tabs.
 class ScaffoldShell extends StatelessWidget {
   const ScaffoldShell({super.key, required this.shell});
@@ -18,13 +20,19 @@ class ScaffoldShell extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: shell,
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: shell.currentIndex,
-        destinations: _destinations,
-        onDestinationSelected: (i) => shell.goBranch(
-          i,
-          initialLocation: i == shell.currentIndex,
-        ),
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const BannerAdWidget(),
+          NavigationBar(
+            selectedIndex: shell.currentIndex,
+            destinations: _destinations,
+            onDestinationSelected: (i) => shell.goBranch(
+              i,
+              initialLocation: i == shell.currentIndex,
+            ),
+          ),
+        ],
       ),
     );
   }

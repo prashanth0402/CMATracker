@@ -7,6 +7,7 @@ import '../../core/providers/providers.dart';
 import '../../core/utils/date_utils.dart';
 import '../../data/database/database.dart';
 import '../../shared/widgets/common.dart';
+import '../../shared/widgets/upcoming_preparation.dart';
 
 class DashboardScreen extends ConsumerWidget {
   const DashboardScreen({super.key});
@@ -22,7 +23,14 @@ class DashboardScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('CMA Tracker'),
+        title: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset('assets/images/logo_small.png', height: 32, width: 32),
+            const SizedBox(width: 10),
+            const Text('CMA Tracker'),
+          ],
+        ),
         actions: [
           IconButton(
             tooltip: 'Calendar',
@@ -147,6 +155,7 @@ class DashboardScreen extends ConsumerWidget {
                       ],
                     ),
             ),
+            const UpcomingPreparationSection(),
             const SectionHeader('Subject summary'),
             AsyncView(
               value: subjectProgress,

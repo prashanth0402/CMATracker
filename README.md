@@ -3,7 +3,7 @@
 An **offline-first**, fully standalone study & timesheet tracker for the
 **CMA Intermediate Group 1** syllabus (Papers 5–8). Built with Flutter + Dart.
 
-There is **no backend, API, Firebase, auth server or cloud database**. Every
+There is **no backend, API, Firebase, auth server or cloud database**. (The only network use is an AdMob banner; see `lib/core/services/ad_service.dart` — it ships with Google's *test* ad IDs, replace them and the app IDs in `AndroidManifest.xml` / `Info.plist` before release.) Every
 feature works with the device in airplane mode. All data lives in a local
 SQLite database; the only outbound action is the OS "share sheet" you invoke
 yourself when exporting a CSV / JSON file.

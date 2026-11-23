@@ -26,6 +26,7 @@ void main() {
     expect(find.text('CMA Tracker'), findsOneWidget);
     expect(find.text("Today's target"), findsOneWidget);
     expect(find.text('Current streak'), findsOneWidget);
+    expect(find.text('Upcoming preparation'), findsOneWidget);
     expect(find.text('Subject summary'), findsOneWidget);
   });
 }

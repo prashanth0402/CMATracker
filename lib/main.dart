@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'app/app.dart';
 import 'core/providers/providers.dart';
+import 'core/services/ad_service.dart';
 import 'core/services/notification_service.dart';
 import 'data/database/database.dart';
 import 'data/repositories/seed_repository.dart';
@@ -10,6 +11,9 @@ import 'data/repositories/settings_repository.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Fire-and-forget: ads must never delay app start.
+  AdService.instance.init();
 
   final db = AppDatabase();
   await SeedRepository(db).ensureSeeded();
